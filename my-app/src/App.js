@@ -13,7 +13,7 @@ function App() {
   const [typedText, setTypedText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
 
-  const roles = useMemo(() => ['Full-Stack Developer', 'UI/UX Designer', 'Web Developer'], []);
+  const roles = useMemo(() => ['Full-Stack Developer', 'UI/UX Designer', 'Software Developer'], []);
 
   useEffect(() => {
     const handleScroll = () => {
