@@ -1,0 +1,259 @@
+/* App.css */
+
+/* Import Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Boxy font */
+
+/* General body and HTML styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', black, monospace;
+  overflow-x: hidden;
+}
+
+.App {
+  position: relative;
+  height: 100vh;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(4px);
+  transition: all 0.5s ease;
+}
+/* App.css */
+
+/* App.css */
+
+/* Create a container for the card */
+.card {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Inner part of the card to apply the flip effect */
+.card-inner {
+  position: relative;
+  width: 600px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  background: transparent;
+}
+
+/* When the card is hovered, flip the inner part */
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces of the card */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+/* Ensure text is visible on both sides */
+.card-front h1,
+.card-back p {
+  color: rgb(1, 0, 0); /* Ensure text is white for contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional text shadow for readability */
+  z-index: 2; /* Ensure the text is on top of the background */
+}
+
+/* Back face of the card */
+.card-back {
+  transform: rotateY(180deg); /* Ensure the back side is initially rotated */
+}
+
+/* About me text */
+.about-text {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: rgb(1, 0, 0); /* Ensure the text is white */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Show "about me" text on hover */
+.card:hover .about-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Gradient overlay for better text readability */
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+  z-index: 0;
+}
+
+.header {
+  position: relative;
+  z-index: 2;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideDown 1s ease-out;
+}
+
+/* Boxy font for name */
+.name {
+  font-size: 2em;
+  margin: 0;
+  color: rgb(3, 0, 0);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family: 'Press Start 2P', cursive; /* Boxy font for name */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+  animation: fadeIn 1s ease-out;
+}
+
+.name:hover {
+  transform: scale(1.1) rotate(2deg);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Typewriter effect for subtitle */
+.subtitle {
+  font-size: 2em;
+  margin-top: 10px;
+  color: rgb(7, 0, 0);
+  font-family: 'Courier New', Courier, monospace;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  min-height: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typewriter-wrapper {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid rgb(1, 0, 0);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+/* App.css */
+
+
+.footer {
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  z-index: 2;
+  width: 100%;
+  animation: slideUp 1s ease-out;
+}
+
+.footer-icon {
+  color: rgb(1, 0, 0);
+  font-size: 2em;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.footer-icon:hover {
+  color: #333;
+  transform: scale(1.2) translateY(-5px);
+  background: rgba(139, 176, 233, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Typewriter effect for subtitle */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(3, 0, 0) }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
